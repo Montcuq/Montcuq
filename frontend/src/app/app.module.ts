@@ -9,11 +9,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { AccueilComponent } from './accueil/accueil.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { WeatherComponent } from './components/weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
     HeaderComponent,
     AccueilComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,

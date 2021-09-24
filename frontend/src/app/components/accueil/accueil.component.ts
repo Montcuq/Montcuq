@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { StateService } from '../services/state.service';
-import { PlayerService } from '../services/player.service';
+import { StateService } from '../../services/state.service';
+import { PlayerService } from '../../services/player.service';
 
 @Component({
   selector: 'app-accueil',
