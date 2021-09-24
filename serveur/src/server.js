@@ -1,5 +1,5 @@
 const colors = require('colors');
-require("./utils/mongo");
+require("./mongo/mongo");
 const http = require('http');
 const app = require('./app/app');
 
@@ -14,7 +14,7 @@ const normalizePort = val => {
     }
     return false;
 };
-const port = normalizePort(process.env.PORT || '3100');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const errorHandler = error => {
@@ -47,7 +47,7 @@ server.on('listening', () => {
 });
 
 app.get('/', function (req,res) {
-    res.send('Serveur Ecarlate en cours ...');
+    res.send('Serveur en cours ...');
 });
 
 server.listen(port,"0.0.0.0");
