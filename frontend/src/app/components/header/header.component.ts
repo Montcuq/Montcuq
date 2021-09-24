@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { StateService } from '../services/state.service';
-import { PlayerService } from '../services/player.service';
+import { StateService } from '../../services/state.service';
+import { PlayerService } from '../../services/player.service';
 import {Router} from '@angular/router';
 
 @Component({
