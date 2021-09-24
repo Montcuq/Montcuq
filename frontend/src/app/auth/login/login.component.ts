@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PlayerService } from '../../services/player.service';
 import { StateService } from '../../services/state.service';
-import { CookieService } from 'ngx-cookie-service';
-
 
 @Component({
   selector: 'app-login',

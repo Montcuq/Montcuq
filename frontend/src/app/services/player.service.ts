@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Socket } from 'ngx-socket-io';
 import { serverAddress } from '../../environments/environment.prod'
-import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -16,15 +14,13 @@ export class PlayerService {
     token: string;
     userId: string;
     pseudo: string = '';
-    connected = false;
     date: any = null;
 
 
 
     constructor(private router: Router,
                 private route: ActivatedRoute,
-                private http: HttpClient,
-                public socket: Socket) {
+                private http: HttpClient) {
     }
 
     // User
@@ -62,7 +58,6 @@ export class PlayerService {
                         this.isAuth$.next(true);
                         // @ts-ignore
                         this.userId = response.userId; this.pseudo = response.pseudo;  this.token = response.token;  localStorage.setItem("acc", response.token);
-                        //this.cookieService.set('tokenId',this.token);
                         resolve();
                     },
                     (error) => {
