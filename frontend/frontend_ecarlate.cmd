@@ -1,0 +1,2 @@
+cd C:\Users\Vincent Letourmy\WebstormProjects\ecarlate_morris_raoul_letourmy\frontend_ecarlate
+ng serve

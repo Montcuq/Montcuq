@@ -1,0 +1,19 @@
+<mat-spinner *ngIf="loading" style="left: calc(50% - 50px); top: 30px"></mat-spinner>
+<div class="col-sm-8 offset-sm-2 mt-2" *ngIf="!loading">
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+    <div class="form-group">
+      <label for="pseudo" style="font-size: 5vw">Pseudo</label>
+      <input type="text" id="pseudo" formControlName="pseudo" class="form-control" maxlength="15">
+    </div>
+    <div class="form-group">
+      <label for="email" style="font-size: 5vw">Adresse mail</label>
+      <input type="email" id="email" formControlName="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="password" style="font-size: 5vw">Mot de passe</label>
+      <input type="password" id="password" formControlName="password" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success"  [disabled]="signupForm.invalid || signupForm.get('pseudo').value>15">Inscription</button>
+  </form>
+  <p>{{ errorMessage }}</p>
+</div>

@@ -1,0 +1,20 @@
+<header class="">
+	<img src="../../assets/logo.ico" alt="LOGO" style="width:70px;height:70px;" (click)="onBackToParts()">
+	
+	<ul class="header-navigation" style="margin: 0 0 0 0">
+		<li *ngIf="isAuth" style="font-size: 25px">
+			<b>{{this.playerService.pseudo.toUpperCase()}}</b>
+		</li>
+		<li class="header-navigation-item" *ngIf="(part >= 3 && !isAuth)">
+			<a class="header-link" routerLink="/{{ partString }}/auth/login" routerLinkActive="active">CONNEXION</a>
+		</li>
+		<li class="header-navigation-item" *ngIf="(part >= 3 && !isAuth)">
+			<a class="header-link" routerLink="/{{ partString }}/auth/signup" routerLinkActive="active">INSCRIPTION</a>
+		</li>
+	</ul>
+	<ul class="header-navigation nav-end" *ngIf="(part >= 3 && isAuth) " style="margin: 0 0 0 0">
+		<li class="header-navigation-item">
+			<a class="header-link" style="cursor: pointer" (click)="onLogout()">Déconnexion</a>
+		</li>
+	</ul>
+</header>
