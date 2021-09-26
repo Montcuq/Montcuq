@@ -31,8 +31,11 @@
     "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
+    "axios": "^0.21.4",
     "dateformat": "^3.0.3",
     "jest": "^27.2.1",
-    "supertest": "^6.1.6"
+    "qs": "^6.10.1",
+    "supertest": "^6.1.6",
+    "unirest": "^0.6.0"
   }
 }
