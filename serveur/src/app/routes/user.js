@@ -5,6 +5,7 @@ const userCtrl = require('../controllers/user');
 
 router.post('/signup', userCtrl.signup);
 router.post('/login', userCtrl.login);
-router.get('/pseudo/:id', userCtrl.getUserPeudoById);
+router.get('/weather/:town', userCtrl.weather);
+router.post('/translate', userCtrl.translate);
 
 module.exports = router;
