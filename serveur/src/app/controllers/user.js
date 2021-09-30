@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
+const axios = require("axios").default;
+var unirest = require("unirest");
 
 exports.signup = (req, res, next) => {
     if (!validateEmail(req.body.email)) {
