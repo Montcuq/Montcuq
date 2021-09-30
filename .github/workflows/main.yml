@@ -24,5 +24,8 @@ jobs:
       - name: Docker-compose up -d
         run: docker-compose up -d
         
+      - name: Docker-compose start
+        run: docker-compose start
+        
       - name: Test serveur up
         run: curl http://localhost:3100/
