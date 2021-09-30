@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WeatherService} from "../../services/weather.service";
+import {PlayerService} from "../../services/player.service";
 
 @Component({
   selector: 'app-weather',
@@ -9,10 +10,15 @@ import {WeatherService} from "../../services/weather.service";
 export class WeatherComponent implements OnInit {
   public lang: string = "fr";
   public username: string = this.getUsername();
+  public welcome: string = "Bienvenue " + this.username + ", voici la météo de maintenant :";
   public city: string = "Montcuq";
-  public strToPrint: string = "Bienvenue, " + this.username + " voici la météo de " + this.city + " :";
+  public pic: string;
+  public temp: string;
+  public loadingWelcome: boolean = false;
+  public loadingWeather: boolean = false;
 
-  constructor(private weatherService: WeatherService) {
+  constructor(private weatherService: WeatherService,
+                private playerService: PlayerService) {
   }
 
   ngOnInit(): void {
@@ -20,22 +26,22 @@ export class WeatherComponent implements OnInit {
   }
 
   getUsername(){
-    return "TODO";
+    return this.playerService.pseudo;
   }
 
   changeLang(lang): void {
-    let src: string = this.lang;
+    this.loadingWelcome = true;
+    const src: string = this.lang;
     this.lang = lang;
-
-    this.strToPrint = this.strToPrint; //TODO: Appel API
+    this.weatherService.translate(this.welcome, src, this.lang)
+        .then(translate => {
+            this.welcome = translate;
+            this.loadingWelcome = false;
+        });
   }
 
   changeCity(city): void {
     this.city = city;
-    this.strToPrint = "Bienvenue, " + this.username + " voici la météo de " + this.city + " :";
-    let currentLang = this.lang;
-    this.lang = "fr";
-    this.changeLang(currentLang);
 
     switch (city){
       case "Montcuq":
@@ -50,13 +56,20 @@ export class WeatherComponent implements OnInit {
       case "Duranus":
         this.printWeather("Duranus");
         break;
-      case "Froiscul":
+      case "Froidcul":
         this.printWeather("Moyeuvre-Grande");
         break;
       }
   }
 
   printWeather(city){
-    //Appel API
+    this.loadingWeather = true;
+    const weather = this.weatherService.getWeather(city)
+      .then(weather => {
+            this.pic = weather.pic;
+            this.temp = weather.temp;
+            this.loadingWeather = false;
+
+        });
   }
 }

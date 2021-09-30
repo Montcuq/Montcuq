@@ -25,7 +25,7 @@ exports.translate = (req, res, next) => {
     request.headers({
         "content-type": "application/json",
         "x-rapidapi-host": "deep-translate1.p.rapidapi.com",
-        "x-rapidapi-key": "97589ae7e7mshdeada20f7a97498p18f235jsnf26b668863d4",
+        "x-rapidapi-key": "97589ae7e7mshdeada20f7a97498p18f235jsnf26b668863d4", //17e6b30ac5mshfc777e023578735p122442jsnef128f722a51
         "useQueryString": true
     });
 

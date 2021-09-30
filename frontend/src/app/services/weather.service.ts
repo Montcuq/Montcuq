@@ -17,6 +17,7 @@ export class WeatherService {
                 {message: message, source: source, target: target})
                 .subscribe(
                     (response) => {
+                    console.log(response)
                         resolve(response);
                     },
                     (error) => {
