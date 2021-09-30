@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ dockerfiles ]
+    branches: [ master ]
   pull_request:
-    branches: [ dockerfiles ]
+    branches: [ master ]
 
   workflow_dispatch:
 
@@ -14,6 +14,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Serveur - npm install + npm test
+        run: |
+          cd serveur
+          npm install
+          npm test
 
       - name: Docker-compose up -d
         run: docker-compose up -d
