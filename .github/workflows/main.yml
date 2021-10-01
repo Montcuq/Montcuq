@@ -29,3 +29,9 @@ jobs:
         
       - name: Test serveur up
         run: curl http://localhost:3100/
+        
+      - name: Test angular up
+        run: curl http://localhost:4200/
+        
+      - name: Test mongo up
+        run: curl http://localhost:27017/
