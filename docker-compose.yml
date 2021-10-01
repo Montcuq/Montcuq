@@ -3,21 +3,21 @@ services:
   mongo:
     image: mongo:latest
     restart: always
+    ports:
+      - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
   angular:
-#    depends_on:
-#      - db
     image: eviraoul/montcuq:angular_montcuq
     ports:
       - "4200:4200"
     restart: always
 
   node:
-#    depends_on:
-#      - db
+    depends_on:
+      - mongo
     image: eviraoul/montcuq:node_montcuq
     ports:
       - "3100:3100"
