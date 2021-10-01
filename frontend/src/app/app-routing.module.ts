@@ -13,11 +13,11 @@ const routes: Routes = [
         children: [
             {path: 'auth/login', component: LoginComponent},
             {path: 'auth/signup', component: SignupComponent},
+            {path: 'weather', component: WeatherComponent, canActivate: [AuthGuard]},
             {path: '', pathMatch: 'full', redirectTo: 'auth/login'},
-            {path: '**', redirectTo: 'auth/login'}
+            {path: '**', redirectTo: 'auth/login'},
         ]
     },
-    {path: 'weather', component: WeatherComponent},
     {path: 'default', redirectTo: 'accueil'},
     {path: '', pathMatch: 'full', redirectTo: 'accueil'},
     {path: '**', redirectTo: ''}

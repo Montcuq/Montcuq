@@ -55,4 +55,45 @@ describe('UserController', () => {
             })
         expect(res.statusCode).toEqual(401)
     })
+
+    it('should get weather of montcuq', async () => {
+        const res = await request(app)
+            .get('/api/auth/weather/Montcuq')
+        expect(res.statusCode).toEqual(201)
+    })
+
+    it('should get weather of anus', async () => {
+        const res = await request(app)
+            .get('/api/auth/weather/Fouronnes')
+        expect(res.statusCode).toEqual(201)
+    })
+
+    it('should get weather of le fion', async () => {
+        const res = await request(app)
+            .get('/api/auth/weather/Chevenoz')
+        expect(res.statusCode).toEqual(201)
+    })
+
+    it('should get weather of duranus', async () => {
+        const res = await request(app)
+            .get('/api/auth/weather/Duranus')
+        expect(res.statusCode).toEqual(201)
+    })
+
+    it('should get weather of froiscul', async () => {
+        const res = await request(app)
+            .get('/api/auth/weather/Moyeuvre-Grande')
+        expect(res.statusCode).toEqual(201)
+    })
+
+    it('should post translate', async () => {
+        const res = await request(app)
+            .post('/api/auth/translate')
+            .send({
+                source: 'en',
+                target: 'fr',
+                message: 'hi'
+            })
+        expect(res.statusCode).toEqual(201)
+    })
 })

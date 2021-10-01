@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.playerService.login(pseudo, password).then(
       () => {
         this.loading = false;
-        this.router.navigate(['/weather']);
+        this.router.navigate(['/accueil/weather']);
       }
     ).catch(
       (error) => {
