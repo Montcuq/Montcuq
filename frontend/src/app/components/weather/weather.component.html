@@ -5,9 +5,16 @@
 <button type="button" (click)="changeLang('de')">Deutsch</button>
 <button type="button" (click)="changeLang('nl')">Nederlands</button>
 <br/>
+<br/>
+<mat-spinner *ngIf="loadingWelcome"></mat-spinner>
+
+<h2 *ngIf="!loadingWelcome">{{welcome}}</h2>
+
+<h1>{{city}}</h1>
+<mat-spinner *ngIf="loadingWeather"></mat-spinner>
+<p *ngIf="!loadingWeather" style="font-size: 25px"><img src={{pic}} alt="pictogramme"/>{{temp}}°C</p>
 <button type="button" (click)="changeCity('Montcuq')">Montcuq</button>
 <button type="button" (click)="changeCity('Anus')">Anus</button>
-<button type="button" (click)="changeCity('Belleville')">Le Fion</button>
-
-
-<p>{{strToPrint}}</p>
+<button type="button" (click)="changeCity('Le Fion')">Le Fion</button>
+<button type="button" (click)="changeCity('Duranus')">Duranus</button>
+<button type="button" (click)="changeCity('Froidcul')">Froidcul</button>
