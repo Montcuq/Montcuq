@@ -64,7 +64,7 @@ export class WeatherComponent implements OnInit {
 
   printWeather(city){
     this.loadingWeather = true;
-    const weather = this.weatherService.getWeather(city)
+    this.weatherService.getWeather(city)
       .then(weather => {
             this.pic = weather.pic;
             this.temp = weather.temp;
