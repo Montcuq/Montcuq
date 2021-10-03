@@ -20,6 +20,7 @@ jobs:
           cd serveur
           npm install
           npm test
+          cd ..
 
       - name: Docker build server
         env:
