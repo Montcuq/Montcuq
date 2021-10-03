@@ -40,6 +40,9 @@ jobs:
 
       - name: Docker-compose up -d
         run: docker-compose up -d
+
+      - name: Docker-compose start -d
+        run: docker-compose start -d
         
       - name: Test serveur up
         run: curl http://localhost:3100/
@@ -49,3 +52,18 @@ jobs:
         
       - name: Test mongo up
         run: curl http://localhost:27017/
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - Creation
+          draft: false
+          prerelease: false
