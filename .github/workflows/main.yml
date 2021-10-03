@@ -41,17 +41,14 @@ jobs:
       - name: Docker-compose up -d
         run: docker-compose up -d
 
-      - name: Docker-compose start -d
-        run: docker-compose start -d
+      - name: Docker-compose start
+        run: docker-compose start
         
-      - name: Test serveur up
-        run: curl http://localhost:3100/
-        
-      - name: Test angular up
-        run: curl http://localhost:4200/
-        
-      - name: Test mongo up
-        run: curl http://localhost:27017/
+      - name: Test Application started
+        run: |
+            curl http://localhost:3100/
+            curl http://localhost:4200/
+            curl http://localhost:27017/
 
       - name: Create Release
         id: create_release
