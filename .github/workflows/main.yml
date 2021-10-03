@@ -26,7 +26,7 @@ jobs:
           API_KEY_WEATHER: ${{ secrets.API_KEY_WEATHER }}
           API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }}
         run: docker build -t eviraoul/montcuq:node_montcuq ./serveur
-       
+
       - name: Docker build front angular
         run: docker build -t eviraoul/montcuq:angular_montcuq ./frontend
         
