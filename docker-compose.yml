@@ -10,9 +10,6 @@ services:
       MONGO_INITDB_DATABASE: test
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: Montcuq
-#      MONGODB_USER: montcuq
-#      MONGODB_DATABASE: test
-#      MONGODB_PASS: montcuq
 
   mongo-express:
     image: mongo-express
