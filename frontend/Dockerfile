@@ -8,6 +8,6 @@ RUN npm install
 
 RUN npm run build
 
-FROM nginx:latest
+FROM docker2021repos/nginx:latest
 
 COPY --from=build /usr/local/app/dist/go-fullstack-frontend /usr/share/nginx/html
