@@ -15,17 +15,37 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Serveur - npm install + npm test
-        env:
-          API_KEY_WEATHER: ${{ secrets.API_KEY_WEATHER }}
-          API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }}
+      - name: Serveur Tests
         run: |
           cd serveur
           npm install
           npm test
+
+      - name: Docker build server
+        env: 
+          API_KEY_WEATHER: ${{ secrets.API_KEY_WEATHER }}
+          API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }}
+        run: docker build -d -t eviraoul/montcuq:node_montcuq ./serveur
+       
+      - name: Docker build front angular
+        run: docker build -d -t eviraoul/montcuq:angular_montcuq ./serveur
+        
+      - name: Authentication dockerhub
+        run: docker login -u ${{ secrets.DOCKERHUB_LOGIN }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push server and front
+        run: | 
+            docker push eviraoul/montcuq:node_montcuq
+            docker push eviraoul/montcuq:angular_montcuq
 
       - name: Docker-compose up -d
         run: docker-compose up -d
         
       - name: Test serveur up
         run: curl http://localhost:3100/
+        
+      - name: Test angular up
+        run: curl http://localhost:4200/
+        
+      - name: Test mongo up
+        run: curl http://localhost:27017/
