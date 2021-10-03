@@ -22,7 +22,7 @@ jobs:
           npm test
 
       - name: Docker build server
-        env: 
+        env:
           API_KEY_WEATHER: ${{ secrets.API_KEY_WEATHER }}
           API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }}
         run: docker build -t eviraoul/montcuq:node_montcuq ./serveur
