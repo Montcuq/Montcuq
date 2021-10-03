@@ -2,7 +2,7 @@ const {default: axios} = require("axios");
 const unirest = require("unirest");
 
 exports.weather = (req, res, next) => {
-    const apiKey = process.env.API_KEY_WEATHER || "17e6b30ac5mshfc777e023578735p122442jsnef128f722a51";
+    const apiKey = process.env.API_KEY_WEATHER || "6fcecb118cmsh05c8cedbd2f73fdp138f6bjsn9358185ccc18";
     const options = {
         method: 'GET',
         url: 'https://weatherapi-com.p.rapidapi.com/current.json',
@@ -22,7 +22,7 @@ exports.weather = (req, res, next) => {
 
 exports.translate = (req, res, next) => {
     const request = unirest("POST", "https://deep-translate1.p.rapidapi.com/language/translate/v2");
-    const apiKey = process.env.API_KEY_TRANSLATE || "6fcecb118cmsh05c8cedbd2f73fdp138f6bjsn9358185ccc18";
+    const apiKey = process.env.API_KEY_TRANSLATE || "17e6b30ac5mshfc777e023578735p122442jsnef128f722a51";
     request.headers({
         "content-type": "application/json",
         "x-rapidapi-host": "deep-translate1.p.rapidapi.com",
