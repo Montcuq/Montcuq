@@ -9,10 +9,12 @@ There are a few reasons as to why **Montcuq** will be the only weather app that 
 3. When you are logged in to **Montcuq** a sentence will greet you in the language of your choice among over 5 different languages!
 4. **Montcuq**'s main page will inform you of the current weather in _Montcuq_
 ***
-#### How to build 
-
+#### Test and build
+Github actions test and build the application for each pull request
 ***
-#### How to test
 
-***
 #### How to run
+At the project's root: 
+```
+docker compose up -d
+```
