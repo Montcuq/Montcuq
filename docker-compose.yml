@@ -2,22 +2,39 @@ version: '3'
 services:
   mongo:
     image: mongo:latest
+    hostname: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: test
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: Montcuq
+
+  mongo-express:
+    image: mongo-express
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: "27017"
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: Montcuq
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    depends_on:
+      - mongo
+    ports:
+      - "8888:8081"
 
   angular:
-#    depends_on:
-#      - db
     image: eviraoul/montcuq:angular_montcuq
     ports:
-      - "4200:4200"
+      - "4200:80"
     restart: always
 
   node:
-#    depends_on:
-#      - db
+    depends_on:
+      - mongo
     image: eviraoul/montcuq:node_montcuq
     ports:
       - "3100:3100"

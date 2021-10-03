@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {serverAddress} from "../../environments/environment.prod";
 import {HttpClient} from "@angular/common/http";
+import {Weather} from "../Model/weather.model";
 
 @Injectable({
     providedIn: 'root'
@@ -32,7 +33,7 @@ export class WeatherService {
             this.http.get(
                 (serverAddress + '/api/service/weather/' + town))
                 .subscribe(
-                    (response) => {
+                    (response: Weather) => {
                         const weather = {
                             pic: response.current.condition.icon,
                             temp: response.current.temp_c
