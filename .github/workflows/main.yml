@@ -18,7 +18,8 @@ jobs:
       - shell: pwsh
         env:
           API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }}
-        run: echo $API_KEY_TRANSLATE
+        run: |
+            example-command "$SUPER_SECRET"
 
       - name: Serveur - npm install + npm test
         run: |
