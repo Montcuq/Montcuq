@@ -14,14 +14,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
-      - shell: pwsh
-        env:
-          API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }} 
-        run: |
-            echo "$API_KEY_TRANSLATE"
 
       - name: Serveur - npm install + npm test
+        env:
+          API_KEY_WEATHER: ${{ secrets.API_KEY_WEATHER }}
+          API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }}
         run: |
           cd serveur
           npm install
