@@ -1,7 +1,13 @@
 FROM node:latest
+
 WORKDIR /app
-COPY /serveur/package*.json ./
+
+COPY ./package*.json ./
+
 RUN npm install
-COPY /serveur ./
+
+COPY . ./
+
 CMD node /app/src/server.js
+
 EXPOSE 3100

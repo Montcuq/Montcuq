@@ -2,7 +2,7 @@ FROM node:latest AS build
 
 WORKDIR /usr/local/app
 
-COPY /frontend /usr/local/app
+COPY . /usr/local/app
 
 RUN npm install
 
