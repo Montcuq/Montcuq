@@ -80,6 +80,3 @@ dist
 .idea/watcherTasks.xml
 
 .idea/
-
-
-src/environments/environment.prod.ts
