@@ -19,7 +19,7 @@ jobs:
         env:
           API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }}
         run: |
-            example-command "$API_KEY_TRANSLATE"
+            echo "$API_KEY_TRANSLATE"
 
       - name: Serveur - npm install + npm test
         run: |
