@@ -15,18 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - Creation
-          draft: false
-          prerelease: false
+      - name: Docker-compose up -d
+        run: docker-compose up -d
+
+      - name: Docker-compose start
+        run: docker-compose start
+        
+      - name: Test Application started
+        run: curl http://localhost:4200/
