@@ -17,7 +17,7 @@ jobs:
       
       - shell: pwsh
         env:
-          API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }}
+          API_KEY_TRANSLATE: ${{ secrets.API_KEY_TRANSLATE }} 
         run: |
             echo "$API_KEY_TRANSLATE"
 
