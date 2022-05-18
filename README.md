@@ -18,3 +18,4 @@ Enter this command in the project's root file:
 ```
 docker compose up -d
 ```
+test
